@@ -104,4 +104,9 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  patch '/tweets/:id' do
+    tweet = Tweet.find_by(id: params[:id])
+    tweet.update(content: params[:content])
+  end
+
 end
