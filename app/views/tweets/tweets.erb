@@ -3,7 +3,8 @@
   <%Tweet.all.each do |tweet|%>
     <p><%=tweet.content%></p>
     <p><%=tweet.autor%></p>
+  <%end%>
   <a href='/logout'>Log Out</a>
-<%end%>
+<%else%>
   <%redirect to '/'%>
 <%end%>
