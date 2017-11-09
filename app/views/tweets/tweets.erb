@@ -1,0 +1,8 @@
+<%if Helpers.is_logged_in?(@session)%>
+  <h1>Welcome, <%=@user.username%></h1>
+  <%Tweet.all.each do |tweet|%>
+    <p><%=tweet.content%></p>
+    <p><%=tweet.autor%></p>
+  <%end%>
+  <a href='/logout'>Log Out</a>
+<%end%>
