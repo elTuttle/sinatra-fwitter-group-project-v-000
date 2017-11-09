@@ -3,10 +3,6 @@
   <%Tweet.all.each do |tweet|%>
     <p><%=tweet.content%></p>
     <p><%=tweet.user.username%></p>
-    <%if tweet.user.id == @session[:user_id]%>
-      <a href="/tweets/<%=@tweet.id%>/delete">Delete Tweet</a>
-      <a href="/tweets/<%=@tweet.id%>/edit">Edit Tweet</a>
-    <%end%>
   <%end%>
   <a href='/logout'>Log Out</a>
 <%else%>
