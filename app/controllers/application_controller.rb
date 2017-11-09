@@ -65,13 +65,17 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/tweets/:id/edit' do
-    @tweet = Tweet.find_by(id: params[:id])
-    @user = User.find_by(id: session[:user_id])
-    @session = session
-    if @user.id == @tweet.user.id
-      erb :'tweets/edit_tweet'
+    if session[:user_id] != nil
+      @tweet = Tweet.find_by(id: params[:id])
+      @user = User.find_by(id: session[:user_id])
+      @session = session
+      if @user.id == @tweet.user.id
+        erb :'tweets/edit_tweet'
+      else
+        "Can't edit someone else's tweet"
+      end
     else
-      "Can't edit someone else's tweet"
+      redirect to '/login'
     end
   end
 
