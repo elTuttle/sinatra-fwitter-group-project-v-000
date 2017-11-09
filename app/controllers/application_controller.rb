@@ -107,6 +107,7 @@ class ApplicationController < Sinatra::Base
   patch '/tweets/:id' do
     tweet = Tweet.find_by(id: params[:id])
     tweet.update(content: params[:content])
+    redirect to "/tweets/#{tweet.id}"
   end
 
 end
