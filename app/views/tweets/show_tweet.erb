@@ -1,8 +1,11 @@
 <%if Helpers.is_logged_in?(@session)%>
   <h4><%=@tweet.content%></h4>
   <p><%=@tweet.user.username%></p>
-  <a href="/tweets/<%=@tweet.id%>/delete" id="Delete Tweet">Delete Tweet</a>
   <a href="/tweets/<%=@tweet.id%>/edit">Edit Tweet</a>
+  <form action="/tweets/<%= @tweet.id%>/delete" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="delete">
+    </form>
   <a href='/logout'>Log Out</a>
 <%else%>
   <%redirect to '/login'%>
