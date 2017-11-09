@@ -66,4 +66,8 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  post '/tweets' do
+
+  end
+
 end
