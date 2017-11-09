@@ -68,10 +68,9 @@ class ApplicationController < Sinatra::Base
     tweet = Tweet.find_by(id: params[:id])
     user = User.find_by(id: session[:user_id])
     if user.id == tweet.user.id
-      tweet.destroy
-      "Tweet was deleted"
+      
     else
-      "Can't delete someone else's tweet"
+      "Can't edit someone else's tweet"
     end
   end
 
