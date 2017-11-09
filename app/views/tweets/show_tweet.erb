@@ -1,8 +1,10 @@
 <%if Helpers.is_logged_in?(@session)%>
   <h4><%=@tweet.content%></h4>
   <p><%=@tweet.user.username%></p>
-  <a href="/tweets/<%=@tweet.id%>/delete">Delete Tweet</a>
-  <a href="/tweets/<%=@tweet.id%>/edit">Edit Tweet</a>
+  <%if @tweet.user.id == @session[:user_id]%>
+    <a href="/tweets/<%=@tweet.id%>/delete">Delete Tweet</a>
+    <a href="/tweets/<%=@tweet.id%>/edit">Edit Tweet</a>
+  <%end%>
   <a href='/logout'>Log Out</a>
 <%else%>
   <%redirect to '/login'%>
