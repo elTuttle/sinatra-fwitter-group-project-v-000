@@ -54,8 +54,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/tweets/:id/delete' do
-    @tweet = Tweet.find_by(id: params[:id])
-    @tweet.destroy
+    tweet = Tweet.find_by(id: params[:id])
+    tweet.destroy
+    "Tweet was deleted"
   end
 
   post '/signup' do
