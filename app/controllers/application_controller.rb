@@ -50,7 +50,6 @@ class ApplicationController < Sinatra::Base
   get '/tweets/:id' do
     @tweet = Tweet.find_by(id: params[:id])
     @session = session
-
     erb :'tweets/show_tweet'
   end
 
