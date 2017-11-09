@@ -1,6 +1,7 @@
 <h1><%=@user.username%></h1>
 <%@user.tweets.all.each do |tweet|%>
   <p><%=tweet.content%></p>
+  <%binding.pry%>
   <%if @user.id == @session[:user_id]%>
     <a href="/tweets/<%=@tweet.id%>/delete">Delete Tweet</a>
     <a href="/tweets/<%=@tweet.id%>/edit">Edit Tweet</a>
