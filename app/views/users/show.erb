@@ -1,9 +1,8 @@
+<h1><%=@user.username%></h1>
+<%@user.tweets.all.each do |tweet|%>
+  <p><%=tweet.content%></p>
+<%end%>
 <%if Helpers.is_logged_in?(@session)%>
-  <h1><%=@user.username%></h1>
-  <%@user.tweets.all.each do |tweet|%>
-    <%binding.pry%>
-    <p><%=tweet.content%></p>
-  <%end%>
   <a href='/logout'>Log Out</a>
 <%else%>
   <%redirect to '/login'%>
