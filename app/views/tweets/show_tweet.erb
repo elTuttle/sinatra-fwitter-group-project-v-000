@@ -2,7 +2,7 @@
   <h4><%=@tweet.content%></h4>
   <p><%=@tweet.user.username%></p>
   <a href="/tweets/<%=@tweet.id%>/delete">Delete Tweet</a>
-  <a href='/logout'>Log Out</a>  
+  <a href='/logout'>Log Out</a>
 <%else%>
   <%redirect to '/login'%>
 <%end%>
