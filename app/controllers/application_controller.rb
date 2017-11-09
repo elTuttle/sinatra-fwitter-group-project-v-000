@@ -42,7 +42,7 @@ class ApplicationController < Sinatra::Base
 
   get '/tweets/new' do
     @session = session
-    erb :create_tweet
+    erb :'tweets/create_tweet'
   end
 
   post '/signup' do
