@@ -66,9 +66,13 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/tweets' do
-    user = User.find_by(id: session[:user_id])
-    tweet = Tweet.create(content: params[:content],user: user)
-    redirect to "/users/#{user.slug}"
+    if params[:content] != ""
+      user = User.find_by(id: session[:user_id])
+      tweet = Tweet.create(content: params[:content],user: user)
+      redirect to "/users/#{user.slug}"
+    else
+      redirect to '/tweets/new'
+    end
   end
 
 end
