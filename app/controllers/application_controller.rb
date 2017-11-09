@@ -47,6 +47,11 @@ class ApplicationController < Sinatra::Base
     erb :'tweets/create_tweet'
   end
 
+  get '/tweets/:id' do
+    @tweet = Tweet.find_by(id: params[:id])
+    
+  end
+
   post '/signup' do
     if params[:username] == ""||params[:email] == ""||params[:password] == ""
       redirect to '/signup'
