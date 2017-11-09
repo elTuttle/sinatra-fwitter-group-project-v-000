@@ -2,7 +2,7 @@
   <h1>Welcome, <%=@user.username%></h1>
   <%Tweet.all.each do |tweet|%>
     <p><%=tweet.content%></p>
-    <p><%=tweet.user.name%></p>
+    <p><%=tweet.user.username%></p>
   <%end%>
   <a href='/logout'>Log Out</a>
 <%else%>
