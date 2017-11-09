@@ -99,8 +99,11 @@ class ApplicationController < Sinatra::Base
     else
       user = User.find_by(username: params[:username])
       if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect to '/tweets'
+        session[:user_id] = user.id
+        redirect to '/tweets'
+      else
+        redirect to '/login'
+      end
     end
   end
 
