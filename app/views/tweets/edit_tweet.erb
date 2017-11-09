@@ -1,0 +1,9 @@
+<%if Helpers.is_logged_in?(@session)%>
+  <form action='/tweets' method="post">
+    <input type="textarea" name="content" id="content">
+    <input type="submit" id="submit" value="Save">
+  </form>
+  <a href='/logout'>Log Out</a>
+<%else%>
+  <%redirect to '/login'%>
+<%end%>
