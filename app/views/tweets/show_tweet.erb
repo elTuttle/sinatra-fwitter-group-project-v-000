@@ -1,0 +1,7 @@
+<%if Helpers.is_logged_in?(@session)%>
+  <h4><%=@tweet.content%></h4>
+  <p><%=@tweet.user.username%</p>
+  <a href='/logout'>Log Out</a>
+<%else%>
+  <%redirect to '/login'%>
+<%end%>
