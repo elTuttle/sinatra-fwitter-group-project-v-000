@@ -25,6 +25,7 @@ class ApplicationController < Sinatra::Base
 
   get '/tweets' do
     @user = User.find_by(id: session[:user_id])
+    @session = session
     erb :'tweets/tweets'
   end
 
