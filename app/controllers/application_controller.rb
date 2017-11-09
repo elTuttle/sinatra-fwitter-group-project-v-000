@@ -35,6 +35,11 @@ class ApplicationController < Sinatra::Base
     redirect '/login'
   end
 
+  get '/users/:slug' do
+    @user = User.find_by_slug(params[:slug])
+    erb :show
+  end
+
   post '/signup' do
     if params[:username] == ""||params[:email] == ""||params[:password] == ""
       redirect to '/signup'
