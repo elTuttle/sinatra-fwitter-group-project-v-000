@@ -54,13 +54,17 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/tweets/:id/delete' do
-    tweet = Tweet.find_by(id: params[:id])
-    user = User.find_by(id: session[:user_id])
-    if user.id == tweet.user.id
-      tweet.destroy
-      "Tweet was deleted"
+    if session[:user_id] != nil
+      tweet = Tweet.find_by(id: params[:id])
+      user = User.find_by(id: session[:user_id])
+      if user.id == tweet.user.id
+        tweet.destroy
+        "Tweet was deleted"
+      else
+        "Can't delete someone else's tweet"
+      end
     else
-      "Can't delete someone else's tweet"
+      redirect to '/login'
     end
   end
 
