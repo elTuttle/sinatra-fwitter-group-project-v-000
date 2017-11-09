@@ -53,7 +53,7 @@ class ApplicationController < Sinatra::Base
     erb :'tweets/show_tweet'
   end
 
-  get '/tweets/:id/delete' do
+  delete '/tweets/:id/delete' do
     if session[:user_id] != nil
       tweet = Tweet.find_by(id: params[:id])
       user = User.find_by(id: session[:user_id])
