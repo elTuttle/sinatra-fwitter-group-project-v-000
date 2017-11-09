@@ -97,7 +97,7 @@ class ApplicationController < Sinatra::Base
     if params[:username] == ""||params[:password] == ""
       redirect to '/login'
     else
-      user = User.find_by(params)
+      user = User.find_by(username: username, password: password)
       session[:user_id] = user.id
       redirect to '/tweets'
     end
